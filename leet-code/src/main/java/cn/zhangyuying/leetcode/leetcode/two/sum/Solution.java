@@ -20,7 +20,7 @@ public class Solution {
 //        int[] nums = {2, 7, 11, 15};
         int[] nums = {3, 2, 4};
         int target = 6;
-        int[] result = solution.twoSum_Own(nums, target);
+        int[] result = solution.twoSum(nums, target);
         logger.info("[{},{}]", result[0], result[1]);
     }
 
