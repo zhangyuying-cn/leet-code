@@ -17,9 +17,10 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
-        int[] result = solution.twoSum(nums, target);
+//        int[] nums = {2, 7, 11, 15};
+        int[] nums = {3, 2, 4};
+        int target = 6;
+        int[] result = solution.twoSum_Own(nums, target);
         logger.info("[{},{}]", result[0], result[1]);
     }
 
@@ -29,8 +30,9 @@ public class Solution {
     private int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
+
             Integer value = numMap.get(target - nums[i]);
-            if (numMap.containsKey(target - nums[i]) && value != i) {
+            if (numMap.containsKey(target - nums[i]) && !value.equals(i)) {
                 return new int[]{i, value};
             }
             numMap.put(nums[i], i);
@@ -50,13 +52,12 @@ public class Solution {
         int[] result = new int[2];
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length; j++) {
-                if (target == nums[i] + nums[j]) {
+                if (target == nums[i] + nums[j] && i != j) {
                     result[0] = i;
                     result[1] = j;
                     break;
                 }
             }
-
         }
         return result;
     }
